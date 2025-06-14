@@ -1,7 +1,7 @@
-// [1,3,4,4,5,5,6]
-//          i
+// [1,]
+//  i
 // [3,4,4,5,7]
-//      j
+//    j
 // [1,5,6]
 
 function foo(arr1, arr2) {
@@ -28,7 +28,6 @@ function foo(arr1, arr2) {
 
     return newArr
 }
-
 
 const nums1 = [1, 5, 5, 10];
 const nums2 = [5, 10, 11];

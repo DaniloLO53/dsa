@@ -1,6 +1,12 @@
-// [2,10,7,12]
-
-// mergeSort([2,10,7,12])
+// [1,3,2,5,4]
+// [1,3] [2,5,4]
+// [1] [3] [2,5,4]
+// [1] [3] [2] [5,4]
+// [1] [3] [2] [5] [4]
+// [5] [4] -> [4,5]
+// [4,5] [2] -> [2,4,5]
+// [2,4,5] [3] -> [2,3,4,5]
+// [2,3,4,5] [1] -> [1,2,3,4,5]
 
 export default function mergeSort(arr) {
     if (arr.length === 1) return arr
@@ -12,28 +18,31 @@ export default function mergeSort(arr) {
     return merge(mergeSort(left), mergeSort(right))
 }
 
-// Função auxiliar que mescla dois arrays ordenados
 function merge(left, right) {
-    let leftIndex = 0
-    let rightIndex = 0
-    const newArr = []
-
-    while (leftIndex < left.length && rightIndex < right.length) {
-        if (left[leftIndex] < right[rightIndex]) {
-            newArr.push(left[leftIndex])
-            leftIndex++
+    let leftCur = 0
+    let rightCur = 0
+    const mergedArr = [] 
+    
+    while (leftCur < left.length && rightCur < right.length) {
+        if (left[leftCur] < right[rightCur]) {
+            mergedArr.push(left[leftCur])
+            leftCur++
         } else {
-            newArr.push(right[rightIndex])
-            rightIndex++
+            mergedArr.push(right[rightCur])
+            rightCur++
         }
     }
 
-    for (let i = leftIndex; i < left.length; i++) {
-        newArr.push(left[i])
+    for (let i = leftCur; i < left.length; i++) {
+        mergedArr.push(left[i])
     }
-    for (let i = rightIndex; i < right.length; i++) {
-        newArr.push(right[i])
+    for (let i = rightCur; i < right.length; i++) {
+        mergedArr.push(right[i])
     }
 
-    return newArr
+    return mergedArr
 }
+
+console.log(mergeSort([1,3,2,5,4]))
+
+// ******************* DOWN-TOP (Without recursion) *******************
