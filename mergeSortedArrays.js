@@ -29,6 +29,10 @@ function foo(arr1, arr2) {
     return newArr
 }
 
+function foo2(arr1, arr2) {
+    
+}
+
 const nums1 = [1, 5, 5, 10];
 const nums2 = [5, 10, 11];
 console.log(foo(nums1, nums2))

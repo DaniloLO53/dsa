@@ -1,18 +1,17 @@
-//                i
-// [1,2,2,3,4,6,7,7]
+//                      i
+// [1,2,3,4,6,7,4,6,7,7,7]
+//              x
+function foo2(arr) {
+    let insertIndex = 0
 
-function foo(arr) {
-    let i = 1
-    const newArr = [arr[0]]
-
-    while (i < arr.length) {
-        if (arr[i] > arr[i-1]) {
-            newArr.push(arr[i])
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== arr[i+1]) {
+            arr[insertIndex] = arr[i]
+            insertIndex++
         }
-        i++
     }
 
-    return newArr
+    return arr.slice(0, insertIndex)
 }
 
 function foo(arr) {
@@ -26,4 +25,5 @@ function foo(arr) {
     return newArr
 }
 
-console.log(foo([1,2,2,3,4,6,7,7]))
+// console.log(foo([1,2,2,2,3,3,4,6,7,7,7]))
+console.log(foo2([1,2,2,2,3,3,4,6,7,7,7]))
