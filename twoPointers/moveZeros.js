@@ -1,6 +1,24 @@
-//          j
-// [2,1,3,12,0,0]
-//                i
+// Move zeros to the end of array and keep the order of elements
+
+//    j
+// [2,0,1,0,3,4,12,9]
+//      i
+
+function foo4(arr) {
+  let j = 0
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      arr[j] = arr[i]
+      j++
+    }
+  }
+  for (let i = j; i < arr.length; i++) {
+    arr[i] = 0
+  }
+
+  return arr
+}
 
 function foo3(arr) {
   let j = 0;
@@ -55,4 +73,4 @@ function foo(arr, left = 0, right = arr.length - 1) {
   return foo(arr, left, right);
 }
 
-console.log(foo3([2, 0, 1, 0, 3, 12]));
+console.log(foo4([0, 9, 2, 0, 1, 0, 3, 12, 0]));

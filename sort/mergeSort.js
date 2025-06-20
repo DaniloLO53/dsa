@@ -45,6 +45,6 @@ function merge(left, right) {
     return mergedArr
 }
 
-console.log(mergeSort([1,3,2,5,4]))
+// console.log(mergeSort([1,3,2,5,4]))
 
 // ******************* DOWN-TOP (Without recursion) *******************
